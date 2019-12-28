@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>Java中常见转换</title>
+    <link href="undefined2019/12/27/%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/"/>
+    <url>2019/12/27/%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Java中常见转换"><a href="#Java中常见转换" class="headerlink" title="Java中常见转换"></a><center>Java中常见转换</center></h1><h2 id="在了解基本数据类型转换前，先了解Java中8中基本数据类型"><a href="#在了解基本数据类型转换前，先了解Java中8中基本数据类型" class="headerlink" title="在了解基本数据类型转换前，先了解Java中8中基本数据类型"></a>在了解基本数据类型转换前，先了解Java中8中基本数据类型</h2><table><thead><tr><th>Type</th><th align="center">Defult</th><th align="center">Size</th><th>Range</th></tr></thead><tbody><tr><td>byte</td><td align="center">0</td><td align="center">8 bits</td><td>-128 ~ 127</td></tr><tr><td>short</td><td align="center">0</td><td align="center">16 bits</td><td>-32768 ~ 32767</td></tr><tr><td>int</td><td align="center">0</td><td align="center">32 bits</td><td>-2147483648 ~ 2147483647</td></tr><tr><td>float</td><td align="center">0.0f</td><td align="center">32 bits</td><td>±1.4E-45 ~ ±3.4028235E+38</td></tr><tr><td>long</td><td align="center">0L</td><td align="center">64 bits</td><td>-9223372036854775808 ~ 9223372036854775807</td></tr><tr><td>double</td><td align="center">0.0d</td><td align="center">64 bits</td><td>±4.9E-324 ~ 1.7976931348623157E+308</td></tr><tr><td>boolean</td><td align="center">false</td><td align="center">1 bits</td><td>NA</td></tr><tr><td>char</td><td align="center">“\u000”</td><td align="center">16 bits</td><td>\u000 ~ \uFFF</td></tr></tbody></table><h2 id="自动类型转换-隐式类型转换"><a href="#自动类型转换-隐式类型转换" class="headerlink" title="自动类型转换/隐式类型转换"></a>自动类型转换/隐式类型转换</h2><p>由系统自动完成类型转换，从存储范围小的类型到存储范围大的类型，由JVM自动完成<br><strong>整型，字符型等数据可以混合运算，不同类型数据会转化同一类型在运算，但必须满足转换前的数据类型位数低于转换后数据类型</strong><br><strong>转换等级由低到高: byte——&gt;short——&gt;int(char)——&gt;long—&gt;float——&gt;double</strong></p><pre><code class="java">short a = 1;short b = 2;int c = a+b;System.out.println(c);</code></pre><p>short类型数据 a 与 b相加后 结果自动转换成int类型数据，输出结果为“8”<br>&nbsp;<br>&nbsp;<br><strong>注意</strong></p><ul><li>不能对Boolean类型做转换操作</li><li>不能把储存容量大的对象类型转换为容量小的类型(需要强制类型转换，可能会造成数据丢失)</li><li>转换过程中,可能会有精度损失 <pre><code class="java">byte a = 100;byte b = 100;byte c = a + b;//此行编译错误：&quot;精度损失&quot;</code></pre>a + b 时 结果自动隐式转换为int类型，此时在使用byte类型c引用变量时会发生精读损失<br>&nbsp;<br>&nbsp;<br>如果把 a + b 强转成byte可已解决编译期错误，但还是会造成精度发生错误，运行期出现bug<br>&nbsp;<pre><code class="java">byte a = 100;byte b = 100;byte c =(byte) (a+b);</code></pre></li></ul><hr><h2 id="强制类型转换-显示类型转换"><a href="#强制类型转换-显示类型转换" class="headerlink" title="强制类型转换/显示类型转换"></a>强制类型转换/显示类型转换</h2><p>（即强制显示的把一个数据类型转换成另一种数据类型，当两种数据类型不兼容，或目标类型的取值范围小于源类型时，自动转换将无法进行，这时就需要进行强制类型转换）</p><pre><code class="java">short a=100;int b = a;//100 double c = 1024.1024;long d = (long)c;// 1024,属于正常的转换和丢失精度的情况</code></pre><p>&nbsp;<br>&nbsp;</p><pre><code class="java">int e = 1000;byte f = (byte)e;//数据溢出</code></pre><p>结果无意义<br>&nbsp;<br>&nbsp;</p><h2 id="类型提升（仅在二元运算符条件下）"><a href="#类型提升（仅在二元运算符条件下）" class="headerlink" title="类型提升（仅在二元运算符条件下）"></a>类型提升（仅在二元运算符条件下）</h2><p>1.<em>所有的byte型. short型和char型之间运算将被提升到int型(例外: final修饰的short, char变量相加后不会被自动提升</em><br>2.　如果两个操作数其中有一个是double类型，另一个操作就会转换为double类型。<br>　　否则，如果其中一个操作数是float类型，另一个将会转换为float类型。<br>　　否则，如果其中一个操作数是long类型，另一个会转换为long类型。<br>　　否则，两个操作数都转换为int类型。  </p><pre><code class="java"> byte b = 50; char c = &#39;a&#39;; short s = 1024; int i = 50000; float f =5.67f; double d =0.1234; double result = (f * b) + (i / c) - (d * s);</code></pre><p>f * b中，b被提升为float类型,该子表达式的结果也提升为float类型。<br>i / c中，变量c被提升为int类型，该子表达式的结果提升为int类型。<br>d * s中，变量s被提升为double类型，该子表达式的结果提升为double型。<br>最后，这三个结果类型分别是float，int和double类型，想减后该表达式的最后的结果就是double类型。  </p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Java</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>类型转换</tag>
+      
+      <tag>Java基础</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>万事开头难</title>
     <link href="undefined2019/12/11/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/"/>
     <url>2019/12/11/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/</url>
@@ -21,33 +48,6 @@
     <tags>
       
       <tag>开始</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>Java中常见转换</title>
-    <link href="undefined2019/12/11/%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/"/>
-    <url>2019/12/11/%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/</url>
-    
-    <content type="html"><![CDATA[<h1 id="Java中常见转换"><a href="#Java中常见转换" class="headerlink" title="Java中常见转换"></a><center>Java中常见转换</center></h1><h2 id="在了解基本数据类型转换前，先了解Java中8中基本数据类型"><a href="#在了解基本数据类型转换前，先了解Java中8中基本数据类型" class="headerlink" title="在了解基本数据类型转换前，先了解Java中8中基本数据类型"></a>在了解基本数据类型转换前，先了解Java中8中基本数据类型</h2><table><thead><tr><th>Type</th><th align="center">Defult</th><th align="center">Size</th><th>Range</th></tr></thead><tbody><tr><td>byte</td><td align="center">0</td><td align="center">8 bits</td><td>-128 ~ 127</td></tr><tr><td>short</td><td align="center">0</td><td align="center">16 bits</td><td>-32768 ~ 32767</td></tr><tr><td>int</td><td align="center">0</td><td align="center">32 bits</td><td>-2147483648 ~ 2147483647</td></tr><tr><td>float</td><td align="center">0.0f</td><td align="center">32 bits</td><td>±1.4E-45 ~ ±3.4028235E+38</td></tr><tr><td>long</td><td align="center">0L</td><td align="center">64 bits</td><td>-9223372036854775808 ~ 9223372036854775807</td></tr><tr><td>double</td><td align="center">0.0d</td><td align="center">64 bits</td><td>±4.9E-324 ~ 1.7976931348623157E+308</td></tr><tr><td>boolean</td><td align="center">false</td><td align="center">1 bits</td><td>NA</td></tr><tr><td>char</td><td align="center">“\u000”</td><td align="center">16 bits</td><td>\u000 ~ \uFFF</td></tr></tbody></table><h2 id="自动类型转换-隐式类型转换"><a href="#自动类型转换-隐式类型转换" class="headerlink" title="自动类型转换/隐式类型转换"></a>自动类型转换/隐式类型转换</h2><p>由系统自动完成类型转换，从存储范围小的类型到存储范围大的类型，由JVM自动完成<br><strong>整型，字符型等数据可以混合运算，不同类型数据会转化同一类型在运算，但必须满足转换前的数据类型位数低于转换后数据类型</strong><br><strong>转换等级由低到高: byte——&gt;short——&gt;int(char)——&gt;long—&gt;float——&gt;double</strong></p><pre><code class="java">short a = 1;short b = 2;int c = a+b;System.out.println(c);</code></pre><p>输出结果为“8”<br>&nbsp;<br>&nbsp;<br><strong>注意</strong></p><ul><li>不能对Boolean类型做转换操作</li><li>不能把储存容量大的对象类型转换为容量小的类型(需要强制类型转换，可能会造成数据丢失)</li><li>转换过程中,可能会有精度损失 例如：<pre><code class="java">byte a = 100;byte b = 100;byte c = a+b;//此行编译错误：&quot;精度损失&quot;</code></pre>a+b时 结果自动隐式转换为int类型，此时在使用short类型c引用变量时会发生精读损失<br>&nbsp;<br>&nbsp;<br>如果把 a + b 强转成short可已解决编译期错误，但还是会造成精度发生错误，运行期出现bug<pre><code class="java">byte a = 100;byte b = 100;byte c =(byte) (a+b);</code></pre></li></ul><hr><h2 id="强制类型转换-显示类型转换"><a href="#强制类型转换-显示类型转换" class="headerlink" title="强制类型转换/显示类型转换"></a>强制类型转换/显示类型转换</h2><p>（即强制显示的把一个数据类型转换成另一种数据类型，当两种数据类型不兼容，或目标类型的取值范围小于源类型时，自动转换将无法进行，这时就需要进行强制类型转换）</p><pre><code class="java">short a=100;int b = a;//100 double c = 1024.1024;long d = (long)c;// 1024,属于正常的转换和丢失精度的情况</code></pre><p>&nbsp;<br>&nbsp;</p><pre><code class="java">int e = 1000;byte f = (byte)e;//数据溢出</code></pre><p>结果无意义<br>&nbsp;<br>&nbsp;</p><h2 id="类型提升（仅在二元运算符条件下）"><a href="#类型提升（仅在二元运算符条件下）" class="headerlink" title="类型提升（仅在二元运算符条件下）##"></a>类型提升（仅在二元运算符条件下）##</h2><p>1.<em>所有的byte型. short型和char型之间运算将被提升到int型(例外: final修饰的short, char变量相加后不会被自动提升</em><br>2.　如果两个操作数其中有一个是double类型，另一个操作就会转换为double类型。<br>　　否则，如果其中一个操作数是float类型，另一个将会转换为float类型。<br>　　否则，如果其中一个操作数是long类型，另一个会转换为long类型。<br>　　否则，两个操作数都转换为int类型。  </p><pre><code class="java"> byte b = 50; char c = &#39;a&#39;; short s = 1024; int i = 50000; float f =5.67f; double d =0.1234; double result = (f * b) + (i / c) - (d * s);</code></pre><p>f * b中，b被提升为float类型,该子表达式的结果也提升为float类型。<br>i / c中，变量c被提升为int类型，该子表达式的结果提升为int类型。<br>d * s中，变量s被提升为double类型，该子表达式的结果提升为double型。<br>最后，这三个结果类型分别是float，int和double类型，想减后该表达式的最后的结果就是double类型。  </p>]]></content>
-    
-    
-    <categories>
-      
-      <category>Java</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>类型转换</tag>
-      
-      <tag>Java基础</tag>
       
     </tags>
     
