@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>Java关键字</title>
+    <link href="undefined2019/12/30/java%E5%85%B3%E9%94%AE%E5%AD%97/"/>
+    <url>2019/12/30/java%E5%85%B3%E9%94%AE%E5%AD%97/</url>
+    
+    <content type="html"><![CDATA[<h1 id="关键字整理"><a href="#关键字整理" class="headerlink" title="关键字整理"></a><center>关键字整理</center></h1><table><thead><tr><th align="center">关键字</th><th align="center">含义</th></tr></thead><tbody><tr><td align="center">abstract</td><td align="center">抽象类或方法</td></tr><tr><td align="center">assert</td><td align="center">用来查找内部程序错误</td></tr><tr><td align="center">break</td><td align="center">跳出switch循环</td></tr><tr><td align="center">byte</td><td align="center">8位整数类型</td></tr><tr><td align="center">case</td><td align="center">switch的一个分支</td></tr><tr><td align="center">catch</td><td align="center">捕获异常的try块字句</td></tr><tr><td align="center">char</td><td align="center">Unicode字符类型</td></tr><tr><td align="center">class</td><td align="center">定义一个类的类型</td></tr><tr><td align="center">const</td><td align="center">是保留的关键字，但现在不用</td></tr><tr><td align="center">continue</td><td align="center">在循环末尾继续</td></tr><tr><td align="center">default</td><td align="center">switch的缺省子句</td></tr><tr><td align="center">do</td><td align="center">do/while循环最前面的语句</td></tr><tr><td align="center">double</td><td align="center">双精度浮点数据类型</td></tr><tr><td align="center">else</td><td align="center">if语句的else字句</td></tr><tr><td align="center">enum</td><td align="center">枚举类型</td></tr><tr><td align="center"><strong>extends</strong></td><td align="center">定义一个父类</td></tr><tr><td align="center">final</td><td align="center">一个常量，或是一个不能覆盖的类或方法</td></tr><tr><td align="center">finall</td><td align="center">try块中总会执行的部分</td></tr><tr><td align="center">float</td><td align="center">单精度浮点数类型</td></tr><tr><td align="center">for</td><td align="center">一种循环类型</td></tr><tr><td align="center">goto</td><td align="center">保留字，不被使用</td></tr><tr><td align="center">if</td><td align="center">条件语句</td></tr><tr><td align="center"><strong>implements</strong></td><td align="center">定义一个类实现的接口</td></tr><tr><td align="center">import</td><td align="center">导入一个包</td></tr><tr><td align="center"><strong>instanceof</strong></td><td align="center">测试一个对象是否为一个类的实例</td></tr><tr><td align="center">int</td><td align="center">32位整数类型</td></tr><tr><td align="center"><strong>interface</strong></td><td align="center">一种抽象类，其中包含可以由类实现的方法</td></tr><tr><td align="center">long</td><td align="center">64位长整数类型</td></tr><tr><td align="center">native</td><td align="center">由宿主系统实现的一个方法</td></tr><tr><td align="center">new</td><td align="center">分配一个新对象或数组</td></tr><tr><td align="center">null</td><td align="center">一个空引用（从技术上说是一个直接量，而不是关键字）</td></tr><tr><td align="center">package</td><td align="center">包含类的一个包</td></tr><tr><td align="center">private</td><td align="center">只能由该类的方法访问</td></tr><tr><td align="center">protected</td><td align="center">只能由该类，其子类以及同一个包中的其他类的方法访问</td></tr><tr><td align="center">public</td><td align="center">可以由所有类的方法访问</td></tr><tr><td align="center">return</td><td align="center">从一个方法返回</td></tr><tr><td align="center">short</td><td align="center">16位整数类型</td></tr><tr><td align="center">static</td><td align="center">这个特性是这个类特有的，而不属于这个类的对象</td></tr><tr><td align="center"><strong>strictfp</strong></td><td align="center">对浮点数计算使用严格的规则</td></tr><tr><td align="center">super</td><td align="center">超类对象或构造函数</td></tr><tr><td align="center">switch</td><td align="center">一个选择语句</td></tr><tr><td align="center"><strong>synchronized</strong></td><td align="center">对线程而言是原子的方法或代码</td></tr><tr><td align="center">this</td><td align="center">当前类的一个方法或构造函数的隐含参数</td></tr><tr><td align="center">throw</td><td align="center">抛出一个异常</td></tr><tr><td align="center">try</td><td align="center">补货异常的代码块</td></tr><tr><td align="center">void</td><td align="center">指示一个方法不返回任何值</td></tr><tr><td align="center"><strong>volatile</strong></td><td align="center">确保一个字段可以由多个线程访问</td></tr><tr><td align="center">while</td><td align="center">一种循环</td></tr></tbody></table>]]></content>
+    
+    
+    <categories>
+      
+      <category>Java</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>-Java基础 -关键字</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Java中常见转换</title>
     <link href="undefined2019/12/27/%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/"/>
     <url>2019/12/27/%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/</url>
