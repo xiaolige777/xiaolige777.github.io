@@ -212,21 +212,25 @@ String str = &quot;HELLOWORLD&quot;;
 String str2 = &quot;helloworld&quot;;
 String str3 = &quot;HELLOWORLD&quot;;
 String str4 = str;
-</code></pre>
-</li>
-</ul>
-</li>
-</ul>
-<p>System.out.println(“str == str2: “ + (str == str2));<br>System.out.println(“str == str3: “ + (str == str3));<br>System.out.println(“str == str4: “ + (str == str4));<br>System.out.println(“str.equals(str2): “ + str.equals(str2));<br>System.out.println(“str.equals(str3): “ + str.equals(str3));<br>System.out.println(“str.equalsIgnoreCase(str2): “ + str.equalsIgnoreCase(str2));<br>System.out.println(“str.equalsIgnoreCase(str3): “ + str.equalsIgnoreCase(str3));<br>}</p>
-<pre><code>输出结果：
-```java
-str == str2: false
+System.out.println(&quot;str == str2: &quot; + (str == str2));
+System.out.println(&quot;str == str3: &quot; + (str == str3));
+System.out.println(&quot;str == str4: &quot; + (str == str4));
+System.out.println(&quot;str.equals(str2): &quot; + str.equals(str2));
+System.out.println(&quot;str.equals(str3): &quot; + str.equals(str3));
+System.out.println(&quot;str.equalsIgnoreCase(str2): &quot; + str.equalsIgnoreCase(str2));
+System.out.println(&quot;str.equalsIgnoreCase(str3): &quot; + str.equalsIgnoreCase(str3));
+}</code></pre>
+输出结果：<pre><code class="java">str == str2: false
 str == str3: true
 str == str4: true
 str.equals(str2): false
 str.equals(str3): true
 str.equalsIgnoreCase(str2): true
-str.equalsIgnoreCase(str3): true</code></pre><p>对于常量字符串，Java把相同内容只分配了一块内存，对于重复引用的字符串只保留一份，所以 “str” 与 “str3” 都指向了常量池中的唯一一个 “HELLOWORLD” 所以比较 “str” 与 “str2” 的地址值相等， （str == str2）为true。 </p>
+str.equalsIgnoreCase(str3): true</code></pre>
+对于常量字符串，Java把相同内容只分配了一块内存，对于重复引用的字符串只保留一份，所以 “str” 与 “str3” 都指向了常量池中的唯一一个 “HELLOWORLD” 所以比较 “str” 与 “str2” 的地址值相等， （str == str2）为true。 </li>
+</ul>
+</li>
+</ul>
 <ul>
 <li><p><strong>substring()方法 字符串截取</strong></p>
 <pre><code class="java">String str= &quot;HelloWorld&quot;;
